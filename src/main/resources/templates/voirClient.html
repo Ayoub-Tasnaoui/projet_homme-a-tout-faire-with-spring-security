@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<title>Bricoleurs</title>
+</head>
+<body>
+
+	<br>
+	<div class="container">
+		<h1>Client</h1>
+		<div class="row col-md-7 table-responsive">
+			<table id="ClientTable" class="table">
+				<thead>
+					<tr>
+
+						<th>Nom</th>
+						<th>prenom</th>
+						<th>ville</th>
+						<th>num</th>
+						<th></th>
+
+					</tr>
+				</thead>
+				<tbody>
+
+					<td th:text="${client.nom}">Nom de service</td>
+					<td th:text="${client.prenom}">description</td>
+					<td th:text="${client.ville}">prix</td>
+					<td th:text="${client.num}">date de publication</td>
+					<td><a th:href="@{/Home}">retour</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

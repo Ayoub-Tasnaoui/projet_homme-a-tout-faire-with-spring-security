@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<title>Home</title>
+<th:block th:include="layout/header"></th:block>
+
+
+
+</head>
+
+
+
+<body>
+
+	<br>
+	<div style="float: left;margin-right:200px; margin-left: 80px">
+	<!-- <div class="container" style="width: 950px"  > 
+		
+	<div class="row col-md-7 table-responsive" style="width: 950px" >  -->
+		
+		<h1>Table des services</h1>
+			<table class="table"  style="width: 600px"  >
+				<thead>
+					<tr> 
+					
+						<th>Nom de service</th>      
+						<th>description</th>
+						<th>prix</th>
+						<th>date de publication</th>
+						<th>Bricoleurs</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="ServicesBrico, rowStat: ${ServicesBricos}"
+						th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
+						<td th:text="${ServicesBrico.nomService}">Nom de service</td>
+						<td th:text="${ServicesBrico.description}">description</td>
+						<td th:text="${ServicesBrico. prix}">prix</td>
+						<td th:text="${ServicesBrico.date_publication}">date de publication</td>
+						<td><a th:href="@{/VoirBricoleur/{id}(id=${ServicesBrico.bricoleur.id})}">Voir_Bricoleur</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<!--  </div> 
+	 </div> -->
+	<div style="float: left">
+	<!-- <div class="container"> 
+		
+	<div class="row col-md-7 table-responsive">  -->
+	
+	<h1>Table des Besoins</h1>
+				<table class="table" style="width: 600px" >
+				
+				<thead>
+					<tr> 
+	
+						
+						<th>Nom de Besoin</th>
+						<th>description</th>
+						<th>prix</th>
+						<th>date de publication</th>
+						<th>Clients</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="besoinsClient, rowStat: ${besoinsClients}"
+						th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
+						<td th:text="${besoinsClient.nomBesoin}">Nom de Besoin</td>
+						<td th:text="${besoinsClient.description}">description</td>
+						<td th:text="${besoinsClient. prix}">prix</td>
+						<td th:text="${besoinsClient.date_publication}">date de publication</td>
+						<td><a th:href="@{/voirClient/{id}(id=${besoinsClient.client.id})}">Voir_Client</a></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			 <a th:href="@{/backend/}"
+              role="button" class="btn btn-default btn-circle">
+              </a>
+		</div>
+<!-- 	</div>
+	</div>  -->
+</body>
+</html>

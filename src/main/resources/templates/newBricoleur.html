@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Create New Product</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Welcome</h1>
+        <br />
+        <form action="#" th:action="@{/}" th:object="${bricoleur}" 
+            method="post">
+ 
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Id :</td>
+                    <td><input type="text" th:field="*{id}" /></td>
+                </tr>
+                <tr>
+                    <td>Nom :</td>
+                    <td><input type="text" th:field="*{nom}" /></td>
+                </tr>
+                <tr>
+                    <td>Prenom :</td>
+                    <td><input type="text" th:field="*{prenom}" /></td>
+                </tr>
+                <tr>
+                    <td>Ville:</td>
+                    <td><input type="text" th:field="*{ville}" /></td>
+                </tr> 
+                 <tr>
+                    <td>Numero Telephone:</td>
+                    <td><input type="text" th:field="*{num}" /></td>
+                </tr>
+                                        
+                <tr>
+                    <td colspan="2"><button type="submit">confirmer</button> </td>
+                </tr>
+               
+                 
+            </table>
+        </form>
+       
+    </div>
+</body>
+</html>
