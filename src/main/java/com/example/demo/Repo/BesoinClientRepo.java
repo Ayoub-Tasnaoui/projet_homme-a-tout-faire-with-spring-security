@@ -11,7 +11,7 @@ import com.example.demo.dao.BesoinClient;
 	
 	public interface BesoinClientRepo extends JpaRepository<BesoinClient, Integer> {
 		
-		@Query(" from BesoinClient Order By date_publication desc")
+		@Query(" from BesoinClient Order By date_publication, date_publication_Heure desc")
 		 List<BesoinClient> findBesoins();
 
 	}

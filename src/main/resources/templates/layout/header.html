@@ -16,6 +16,12 @@
           href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
           rel="stylesheet" media="screen" />
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../../static/css/style.css" />
+     <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -24,16 +30,21 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
-                    <ul class="nav navbar-nav">
-                    <li><a th:href="@{/ServiceBrico}">les Services</a></li>
-                    <li><a th:href="@{/BesoinsClient}">les Besoins</a></li>
-                        <li><a th:href="@{/addBricoleur}">Devenir Bricoleur</a></li>
-                        <li><a th:href="@{/addOffre}">poster une Besoin</a></li>
-                        <li><a th:href="@{/login}">se connecter</a></li>
-                    </ul>
-                </div>
-            </div>
+                    <a class="navbar-brand" href="#" th:href="@{/}">Home</a>             
+               <ul class="nav nav-tabs">
+   <li><a th:href="@{/ServiceBrico}">les Services</a></li>
+ <li><a th:href="@{/BesoinsClient}">les Besoins</a></li>
+ <li><a th:href="@{/addBricoleur}">Devenir Bricoleur</a></li>
+<li><a th:href="@{/AjouterUneBesoin}">AjouterUneBesoin</a></li>
+ <li><a th:href="@{/login}">se connecter</a></li>
+
+ 
+ 
+</ul>
+                          
+        </div>
+                 </div>
+            
         </nav>
     </div>
 </div>

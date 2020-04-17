@@ -35,6 +35,7 @@
 						<th>description</th>
 						<th>prix</th>
 						<th>date de publication</th>
+						<th>Heure de publication</th>
 						<th>Clients</th>
 
 					</tr>
@@ -46,6 +47,7 @@
 						<td th:text="${besoinsClient.description}">description</td>
 						<td th:text="${besoinsClient. prix}">prix</td>
 						<td th:text="${besoinsClient.date_publication}">date de publication</td>
+						<td th:text="${besoinsClient.date_publication_Heure}">Heure de publication</td>
 						<td><a th:href="@{/voirClient/{id}(id=${besoinsClient.client.id})}">Voir_Client</a></td>
 					</tr>
 				</tbody>

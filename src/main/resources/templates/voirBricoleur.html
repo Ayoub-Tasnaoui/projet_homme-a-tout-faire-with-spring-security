@@ -40,11 +40,11 @@
 				</thead>
 				<tbody>
 					
-						<td th:text="${b.nom}">Nom de service</td>
-						<td th:text="${b.prenom}">description</td>
-						<td th:text="${b.ville}">prix</td>
-						<td th:text="${b.num}">date de publication</td>
-						<td><a th:href="@{/ServiceBrico}">retour</a></td>
+						<td th:text="${b.nom}">Nom</td>
+						<td th:text="${b.prenom}">Prenom</td>
+						<td th:text="${b.ville}">Ville</td>
+						<td th:text="${b.num}">Numero </td>
+						<td><a th:href="@{/homeBricoleurPage/{id}(id=${bricoleur.id})}">retour</a></td>
 					</tr>
 				</tbody>
 			</table>

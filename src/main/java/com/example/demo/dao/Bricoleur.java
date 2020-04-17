@@ -3,14 +3,12 @@ package com.example.demo.dao;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Bricoleur {
+public class Bricoleur extends User  {
 
-	@Id
-	private int id;
+	
 	private String nom;
 	private String prenom;
 	private String ville;
@@ -21,13 +19,31 @@ public class Bricoleur {
 	@OneToMany(mappedBy = "bricoleur")
 	private List<ServiceBrico> service;
 
-	public int getId() {
-		return id;
+	
+
+	public Bricoleur() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public Bricoleur(String userName, String password, String nom, String prenom, String ville, String num) {
+		super(userName, password);
+		
+		this.nom = nom;
+		this.prenom = prenom;
+		this.ville = ville;
+		this.num = num;
+		
 	}
+	public Bricoleur( String nom, String prenom, String ville, String num) {
+		
+		
+		this.nom = nom;
+		this.prenom = prenom;
+		this.ville = ville;
+		this.num = num;
+		
+	}
+
 
 	public String getNom() {
 		return nom;
@@ -67,6 +83,14 @@ public class Bricoleur {
 
 	public void setNum(String num) {
 		this.num = num;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Bricoleur [nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", num=" + num + ", service="
+				+ service + "]";
 	}
 
 	

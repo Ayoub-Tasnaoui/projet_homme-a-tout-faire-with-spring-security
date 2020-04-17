@@ -19,6 +19,15 @@ public class ClientService {
 		return repo.findById(id).get();
 		
 	}
+
+
+
+	public void addClientAny(Client client) {
+		repo.save(client);
+		
+	}
+	
+	
 	
 	
 	

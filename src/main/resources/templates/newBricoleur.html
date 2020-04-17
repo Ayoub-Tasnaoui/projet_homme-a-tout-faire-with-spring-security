@@ -2,44 +2,72 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:th="http://www.thymeleaf.org">
 <head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'></link>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
 <meta charset="utf-8" />
-<title>Create New Product</title>
+<title>Bricoleur</title>
+<th:block th:include="layout/header"></th:block>
 </head>
-<body>
+<body style="background-color: #F6F6F6">
+
+ <h1></h1>
     <div align="center">
-        <h1>Welcome</h1>
-        <br />
-        <form action="#" th:action="@{/}" th:object="${bricoleur}" 
+    <br>
+        <h1>Devenir Bricoleur</h1>
+        
+        <form action="#" th:action="@{/erreur}" th:object="${bricoleur}" 
             method="post">
+            
+            <div th:if="${Eror1}" style="position: absolute; top: 60px; left: 325px; width: 780px"
+             class="alert alert-danger">il faut remplir tous les  champs.
+        </div>
+        
+        
+         <div th:if="${Eror2}" style="position: absolute; top: 60px; left: 325px; width: 780px"
+             class="alert alert-danger">ce userName est deja utiliser.
+        </div>
+        
+        
  
             <table border="0" cellpadding="10">
+            <p>
                 <tr>
-                    <td>Id :</td>
-                    <td><input type="text" th:field="*{id}" /></td>
+                    <td>UserName :</td>
+                    <td><input type="text" th:field="*{userName}" placeholder="UserName"/></td>
+                </tr>
+               
+                <tr>
+                    <td>Password :</td>
+                    <td><input type="password" th:field="*{password}" placeholder="Password" /></td>
                 </tr>
                 <tr>
                     <td>Nom :</td>
-                    <td><input type="text" th:field="*{nom}" /></td>
+                    <td><input type="text" th:field="*{nom}" placeholder="Nom"/></td>
                 </tr>
                 <tr>
                     <td>Prenom :</td>
-                    <td><input type="text" th:field="*{prenom}" /></td>
+                    <td><input type="text" th:field="*{prenom}" placeholder="Prenom"/></td>
                 </tr>
                 <tr>
                     <td>Ville:</td>
-                    <td><input type="text" th:field="*{ville}" /></td>
+                   <td> <select th:field="*{ville}">
+                    <option th:each="p:${ville}" th:value="${p}" th:text="${p}"/>
+                </select></td>
+
                 </tr> 
                  <tr>
                     <td>Numero Telephone:</td>
-                    <td><input type="text" th:field="*{num}" /></td>
+                    <td><input type="text" th:field="*{num}" placeholder="Numero Telephone" /></td>
                 </tr>
                                         
                 <tr>
                     <td colspan="2"><button type="submit">confirmer</button> </td>
                 </tr>
-               
-                 
             </table>
+            
         </form>
        
     </div>

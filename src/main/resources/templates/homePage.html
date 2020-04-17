@@ -10,6 +10,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
@@ -24,76 +25,121 @@
 
 <body>
 
-	<br>
-	<div style="float: left;margin-right:200px; margin-left: 80px">
-	<!-- <div class="container" style="width: 950px"  > 
-		
-	<div class="row col-md-7 table-responsive" style="width: 950px" >  -->
-		
-		<h1>Table des services</h1>
-			<table class="table"  style="width: 600px"  >
-				<thead>
-					<tr> 
-					
-						<th>Nom de service</th>      
-						<th>description</th>
-						<th>prix</th>
-						<th>date de publication</th>
-						<th>Bricoleurs</th>
 
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="ServicesBrico, rowStat: ${ServicesBricos}"
-						th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
-						<td th:text="${ServicesBrico.nomService}">Nom de service</td>
-						<td th:text="${ServicesBrico.description}">description</td>
-						<td th:text="${ServicesBrico. prix}">prix</td>
-						<td th:text="${ServicesBrico.date_publication}">date de publication</td>
-						<td><a th:href="@{/VoirBricoleur/{id}(id=${ServicesBrico.bricoleur.id})}">Voir_Bricoleur</a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	<!--  </div> 
-	 </div> -->
-	<div style="float: left">
-	<!-- <div class="container"> 
-		
-	<div class="row col-md-7 table-responsive">  -->
-	
-	<h1>Table des Besoins</h1>
-				<table class="table" style="width: 600px" >
-				
-				<thead>
-					<tr> 
-	
-						
-						<th>Nom de Besoin</th>
-						<th>description</th>
-						<th>prix</th>
-						<th>date de publication</th>
-						<th>Clients</th>
+	<div class="container">
+	<div class="card" >
+					<img class="card-img-top" src="/api/images?background=brico"
+						alt="JSA Card image" />
 
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="besoinsClient, rowStat: ${besoinsClients}"
-						th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
-						<td th:text="${besoinsClient.nomBesoin}">Nom de Besoin</td>
-						<td th:text="${besoinsClient.description}">description</td>
-						<td th:text="${besoinsClient. prix}">prix</td>
-						<td th:text="${besoinsClient.date_publication}">date de publication</td>
-						<td><a th:href="@{/voirClient/{id}(id=${besoinsClient.client.id})}">Voir_Client</a></td>
-					</tr>
-				</tbody>
-			</table>
+		<h1 class="text-center" style="margin-top: 50px; margin-bottom: 50px">
+			HTF 1er site d'annonces gratuites des professionnels au Maroc</h1>
+           </div>
+		<div class="row">
+
+			<div class="col-sm-4">
+				<h4 class="text-center">Travaux de plâtrerie peinture</h4>
+				<div class="card">
+					<img class="card-img-top" src="/api/images?background=peinture.png"
+						alt="JSA Card image" />
+					<div class="card-body">
+						<h4 class="card-title">Peindre en bricolage</h4>
+						<p class="card-text">bricolage de plâtre, bricolage de
+							peinture (effectuer une retouche de peinture), bricolage de
+							papier peint (retouche de tapisserie, retirer les moisissures
+							autour d'une fenêtre ou dans une salle d'eau..), bricolage au
+							plafond, déposer, décaper, nettoyer, peindre et reposer les
+							volets,</p>
+
+						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<h4 class="text-center">Travaux de plomberie</h4>
+				<div class="card">
+					<img class="card-img-top" src="/api/images?background=plombie"
+						alt="JSA Card image" />
+					<div class="card-body">
+						<h4 class="card-title">Bricolage de plomberie</h4>
+						<p class="card-text">(changer un joint, purger un radiateur,
+							brancher une machine à laver, réparer un robinet, déboucher les
+							toilettes), remplacer un battant de toilettes, assurer
+							l'étanchéité, bricolage de douche ...</p>
+
+						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<h4 class="text-center">Travaux de maçonnerie</h4>
+				<div class="card">
+					<img class="card-img-top" src="/api/images?background=maconnerie"
+						alt="JSA Card image" />
+					<div class="card-body">
+						<h4 class="card-title">Bricolage de maçonnerie</h4>
+						<p class="card-text">bricolage de mur (monter un petit mur de
+							quelques moellons, boucher les trous d'un mur, boucher une
+							fissure, réparer une fissure murale),...</p>
+
+						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<h4 class="text-center">Travaux d'électricité</h4>
+				<div class="card">
+					<img class="card-img-top" src="/api/images?background=electricite"
+						alt="JSA Card image" />
+					<div class="card-body">
+						<h4 class="card-title">Bricolage d'électricité</h4>
+						<p class="card-text">changer une ampoule, changer un fusible,
+							changer une prise électrique), bricolage de luminaire (mettre un
+							lustre au plafond) ...</p>
+
+						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<h4 class="text-center">Travaux de menuiserie</h4>
+				<div class="card">
+					<img class="card-img-top" src="/api/images?background=menuisier"
+						alt="JSA Card image" />
+					<div class="card-body">
+						<h4 class="card-title">Bricolage de menuiserie</h4>
+						<p class="card-text">bricolage d'un parquet, bricolage du bois
+							(raboter une porte), bricolage de porte (réparer une porte,
+							améliorer son mécanisme, changer de charnières, remplacer le
+							système de fermeture d'une porte),...</p>
+
+						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-4">
+				<h4 class="text-center">Travaux d'installation</h4>
+				<div class="card">
+					<img class="card-img-top" src="/api/images?background=montage"
+						alt="JSA Card image" />
+					<div class="card-body">
+						<h4 class="card-title">Bricolage de mmontage</h4>
+						<p class="card-text">bricolage de cuisine (fixer des éléments
+							de cuisine), bricolage de salle de bain (fixer un élément de
+							salle de bains), fixer un rideau de douche, bricolage d'une
+							étagère (monter une étagère murale), bricolage de placard,
+							montage et démontage de mobilier, installations diverses ...</p>
+
+						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+					</div>
+				</div>
+			</div>
+
 			
-			 <a th:href="@{/backend/}"
-              role="button" class="btn btn-default btn-circle">
-              </a>
 		</div>
-<!-- 	</div>
-	</div>  -->
+	</div>  
 </body>
 </html>

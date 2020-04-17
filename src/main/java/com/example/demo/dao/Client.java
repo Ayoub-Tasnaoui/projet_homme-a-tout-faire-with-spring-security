@@ -3,14 +3,13 @@ package com.example.demo.dao;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Client {
+public class Client extends User {
 
-	@Id
-	private int id;
+	
+	
 	private String nom;
 	private String prenom;
 	private String ville;
@@ -19,13 +18,33 @@ public class Client {
 	@OneToMany(mappedBy = "client")
 	private List<BesoinClient> besoinClient;
 
-	public int getId() {
-		return id;
+	public Client() {
+		super();
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public Client(String userName, String password, String nom, String prenom, String ville, String num) {
+		super(userName, password);
+		
+		this.nom = nom;
+		this.prenom = prenom;
+		this.ville = ville;
+		this.num = num;
+		
 	}
+	public Client( String nom, String prenom, String ville, String num) {
+		
+		
+		this.nom = nom;
+		this.prenom = prenom;
+		this.ville = ville;
+		this.num = num;
+		
+	}
+	 
+    
+	
+
+	
 
 	public String getNom() {
 		return nom;
@@ -66,5 +85,13 @@ public class Client {
 	public void setBesoinClient(List<BesoinClient> besoinClient) {
 		this.besoinClient = besoinClient;
 	}
+
+	@Override
+	public String toString() {
+		return "Client [nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", num=" + num + ", besoinClient="
+				+ besoinClient + "]";
+	}
+	
+	
 
 }

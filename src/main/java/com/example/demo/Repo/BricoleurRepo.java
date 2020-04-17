@@ -6,4 +6,6 @@ import com.example.demo.dao.Bricoleur;
 
 public interface BricoleurRepo extends JpaRepository<Bricoleur, Integer> {
 
+
+	
 }

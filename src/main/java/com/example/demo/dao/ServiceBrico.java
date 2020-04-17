@@ -1,8 +1,12 @@
 package com.example.demo.dao;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,16 +15,56 @@ import javax.persistence.ManyToOne;
 public class ServiceBrico {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id_service;
 	private String nomService;
 	private String description;
 	private String prix;
-	private Date date_publication;
+	
+	@Column(name = "DATE_PUB")
+	private LocalDate date_publication;
+	
+	@Column(name = "DATE_PUB_Heure")
+	private LocalTime date_publication_Heure;
 	
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Brico")
 	private Bricoleur bricoleur;
+	
+	public ServiceBrico() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ServiceBrico( String nomService, String description, String prix,LocalDate date_publication,LocalTime date_publication_Heure,
+			Bricoleur bricoleur) {
+		super();
+		
+		this.nomService = nomService;
+		this.description = description;
+		this.prix = prix;
+		this.date_publication = date_publication;
+		this.date_publication_Heure = date_publication_Heure;
+		this.bricoleur = bricoleur;
+	}
+	
+	
+
+	public LocalDate getDate_publication() {
+		return date_publication;
+	}
+
+	public void setDate_publication(LocalDate date_publication) {
+		this.date_publication = date_publication;
+	}
+
+	public LocalTime getDate_publication_Heure() {
+		return date_publication_Heure;
+	}
+
+	public void setDate_publication_Heure(LocalTime date_publication_Heure) {
+		this.date_publication_Heure = date_publication_Heure;
+	}
 
 	public int getId_service() {
 		return id_service;
@@ -62,13 +106,14 @@ public class ServiceBrico {
 		this.prix = prix;
 	}
 
-	public Date getDate_publication() {
-		return date_publication;
+	@Override
+	public String toString() {
+		return "ServiceBrico [id_service=" + id_service + ", nomService=" + nomService + ", description=" + description
+				+ ", prix=" + prix + ", date_publication=" + date_publication + ", date_publication_Heure="
+				+ date_publication_Heure + ", bricoleur=" + bricoleur + "]";
 	}
 
-	public void setDate_publication(Date date_publication) {
-		this.date_publication = date_publication;
-	}
+	
 	
 	
 

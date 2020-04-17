@@ -20,4 +20,9 @@ public class BesoinClientService {
 		return repo.findBesoins();
 	}
 
+	public void addBesoinClien(BesoinClient besoinClient) {
+		repo.save(besoinClient);
+		
+	}
+
 }
