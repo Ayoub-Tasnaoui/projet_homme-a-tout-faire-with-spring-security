@@ -49,6 +49,8 @@ public class BricoController {
 				bricoleur.getPrenom().length()<1 || bricoleur.getVille().length()<1 || bricoleur.getPassword().length()<1 ) {
 			m.addAttribute("Eror1", true);
 			System.out.println("Eror1");
+			List<String> ville= Arrays.asList("Casablanca","Fes","Rabat","Tanger","Marrakesh");
+			m.addAttribute("ville",ville);
 			return "newBricoleur";
 		}
 		List<Bricoleur> bricoleurs=new ArrayList<Bricoleur>();
@@ -57,6 +59,8 @@ public class BricoController {
 			if(bricoleur2.getUserName().equals(bricoleur.getUserName())) {
 				m.addAttribute("Eror2", true);
 				System.out.println("Eror2");
+				List<String> ville= Arrays.asList("Casablanca","Fes","Rabat","Tanger","Marrakesh");
+				m.addAttribute("ville",ville);
 				return "newBricoleur";	
 			}
 		}

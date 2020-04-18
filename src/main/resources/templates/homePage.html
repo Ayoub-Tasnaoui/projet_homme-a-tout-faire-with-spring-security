@@ -50,7 +50,8 @@
 							plafond, déposer, décaper, nettoyer, peindre et reposer les
 							volets,</p>
 
-						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+						<a th:href="@{/afficheBricoleurs/{nomService}(nomService=${tpp})}" class="btn btn-primary">Contact</a>
+						
 					</div>
 				</div>
 			</div>
@@ -67,7 +68,9 @@
 							toilettes), remplacer un battant de toilettes, assurer
 							l'étanchéité, bricolage de douche ...</p>
 
-						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+						<a th:href="@{/afficheBricoleurs/{nomService}(nomService=${tp})}" class="btn btn-primary">Contact</a>
+					<!-- 	@{'/VoirBricoleur/'+${ServicesBrico.bricoleur.id} -->
+						
 					</div>
 				</div>
 			</div>
@@ -82,7 +85,7 @@
 							quelques moellons, boucher les trous d'un mur, boucher une
 							fissure, réparer une fissure murale),...</p>
 
-						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+						<a  th:href="@{/afficheBricoleurs/{nomService}(nomService=${tma})}"  class="btn btn-primary">Contact</a>
 					</div>
 				</div>
 			</div>
@@ -98,7 +101,7 @@
 							changer une prise électrique), bricolage de luminaire (mettre un
 							lustre au plafond) ...</p>
 
-						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+						<a  th:href="@{/afficheBricoleurs/{nomService}(nomService=${te})}"  class="btn btn-primary">Contact</a>
 					</div>
 				</div>
 			</div>
@@ -115,7 +118,7 @@
 							améliorer son mécanisme, changer de charnières, remplacer le
 							système de fermeture d'une porte),...</p>
 
-						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+						<a  th:href="@{/afficheBricoleurs/{nomService}(nomService=${tm})}"  class="btn btn-primary">Contact</a>
 					</div>
 				</div>
 			</div>
@@ -133,7 +136,7 @@
 							étagère (monter une étagère murale), bricolage de placard,
 							montage et démontage de mobilier, installations diverses ...</p>
 
-						<a href="/ServiceBrico" class="btn btn-primary">Contact</a>
+						<a th:href="@{/afficheBricoleurs/{nomService}(nomService=${ti})}"  class="btn btn-primary">Contact</a>
 					</div>
 				</div>
 			</div>

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.dao.BesoinClient;
-import com.example.demo.dao.Client;
 import com.example.demo.service.BesoinClientService;
 import com.example.demo.service.ClientService;
 
@@ -76,7 +75,7 @@ public class BesoinClientController {
 
 		// return "profilBricoleur";
 
-		return "redirect:/";
+		return "redirect:/BesoinsClient";
 	}
 	
 	

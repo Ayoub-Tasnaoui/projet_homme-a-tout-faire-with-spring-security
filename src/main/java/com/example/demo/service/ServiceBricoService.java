@@ -33,20 +33,21 @@ public class ServiceBricoService {
 
 	   }
 
-	   /*public void delete(int id) {
-			ServiceBrico a=repo.getOne(id);
-			repo.delete(a);
-	   }*/
+	  
 		public ServiceBrico get(int id){
 			return repo.findById(id).get();
 		}
 		
 		public void delete(int id){
-			repo.deleteById(id);
+			 repo.deleteById(id);
+			 repo.flush();
 		}
 
-		public ServiceBrico findServiceVricoByOne(int id) {
-			
-			return null;
+		public  ServiceBrico findServiceBricoByOne(int id) {
+			return repo.findById(id).get();
+		}
+		
+		public List<ServiceBrico>  findByServiceNom1(String nomService){
+			return repo.findByServiceNom(nomService);
 		}
 }

@@ -13,7 +13,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<title>Home</title>
+<title>les Services</title>
 <th:block th:include="layout/Bricoleurheader"></th:block>
 
 </head>
@@ -21,9 +21,7 @@
 
 
 <body>
-<h1 th:text="${bricoleur.id}"></h1>
-<h1 th:text="${bricoleur.nom}"></h1>
-	<br>
+
 	<div class="container">
 		<h1>Table des Services</h1>
 		<div class="row col-md-7 table-responsive">
@@ -31,11 +29,12 @@
 				<thead>
 					<tr> 
 	
-						<th>Id</th>
+						
 						<th>Nom de service</th>
 						<th>description</th>
 						<th>prix</th>
 						<th>date de publication</th>
+						<th>Heure de publication</th>
 						<th>Actions</th>
 						
 						
@@ -45,11 +44,12 @@
 				<tbody>
 					<tr th:each="ServicesBrico, rowStat: ${ServicesBricos}"
 						th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
-						<td th:text="${ServicesBrico.id_service}"></td>
+						
 						<td th:text="${ServicesBrico.nomService}">Nom de service</td>
 						<td th:text="${ServicesBrico.description}">description</td>
 						<td th:text="${ServicesBrico. prix}">prix</td>
 						<td th:text="${ServicesBrico.date_publication}">date de publication</td>
+						<td th:text="${ServicesBrico.date_publication_Heure}">date de publication_Heure</td>
 						<td><a th:href="@{'/EditBricoleur/'+${ServicesBrico.id_service}+'/byOneBrico/'+${bricoleur.id}}">Edit</a>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<a th:href="@{'/DeleteBricoleur/'+${ServicesBrico.id_service}+'/byOneBrico/'+${bricoleur.id}}">Delet</a></td>

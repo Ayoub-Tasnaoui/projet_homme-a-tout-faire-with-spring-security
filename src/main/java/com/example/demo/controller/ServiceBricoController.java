@@ -4,18 +4,23 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.dao.Bricoleur;
 import com.example.demo.dao.ServiceBrico;
 import com.example.demo.service.BricoleurService;
 import com.example.demo.service.ServiceBricoService;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ServiceBricoController {
@@ -46,7 +51,7 @@ public class ServiceBricoController {
 		m.addAttribute("bricoleur", bricoleur);
 		ServiceBrico serviceBrico = new ServiceBrico();
 		List<String> nomService = Arrays.asList("Travaux de plâtrerie peinture", "Travaux de plomberie",
-				"Travaux de maçonnerie", "Travaux d'électricité", "Travaux de menuiserie", "Travaux d'installation",
+				"Travaux de maçonnerie",  "Travaux d'électricité", "Travaux de menuiserie", "Travaux d'installation",
 				"Travaux de décoration");
 		m.addAttribute("nomService", nomService);
 
@@ -64,6 +69,10 @@ public class ServiceBricoController {
 				|| serviceBrico.getPrix().length() < 1) {
 			m.addAttribute("Eror1", true);
 			System.out.println("Eror1");
+			List<String> nomService = Arrays.asList("Travaux de plâtrerie peinture", "Travaux de plomberie",
+					"Travaux de maçonnerie", "Travaux d'électricité", "Travaux de menuiserie", "Travaux d'installation",
+					"Travaux de décoration");
+			m.addAttribute("nomService", nomService);
 			return "ajouterService";
 		}
 
@@ -114,6 +123,10 @@ public class ServiceBricoController {
 		List<String> nomService = Arrays.asList("Travaux de plâtrerie peinture", "Travaux de plomberie",
 				"Travaux de maçonnerie", "Travaux d'électricité", "Travaux de menuiserie", "Travaux d'installation",
 				"Travaux de décoration");
+		
+		
+	
+
 		m.addAttribute("nomService", nomService);
 
 		m.addAttribute("ServicesBricos", ServicesBricos);
@@ -126,6 +139,13 @@ public class ServiceBricoController {
 		return mav;
 	}
 
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String saveService(@ModelAttribute("serviceBrico") ServiceBrico serviceBrico, @PathVariable("id") int id) {
+
+		bservice.updateService(serviceBrico,id);
+		return "redirect:/servicesByOneBrico/{id1}";
+	}
+
 	@RequestMapping("DeleteBricoleur/{id}/byOneBrico/{id1}")
 	public String servicesByOneBrico(@PathVariable("id") int id, @PathVariable("id1") int id1, Model m) {
 		List<ServiceBrico> ServicesBricos = new ArrayList<>();
@@ -133,7 +153,7 @@ public class ServiceBricoController {
 		ServicesBricos = bservice.findServiceByOneBrico(id1);
 
 		ServiceBrico serviceBrico1 = new ServiceBrico();
-		serviceBrico1 = bservice.findServiceVricoByOne(id);
+		serviceBrico1 = bservice.findServiceBricoByOne(id);
 
 		for (ServiceBrico serviceBrico : ServicesBricos) {
 			if (serviceBrico.equals(serviceBrico1)) {
@@ -152,5 +172,36 @@ public class ServiceBricoController {
 
 		return "redirect:/servicesByOneBrico/{id1}";
 	}
+	
+	
+	
+	  @RequestMapping("/afficheBricoleurs/{nomService}")
+	  public String afficheBricoleurs(Model  m,@PathVariable("nomService") String nomService) {
+		 String nomServicee=null;
+		
+		 Set<Bricoleur> bricoleurs=new HashSet<Bricoleur>();
+		  List<ServiceBrico> serviceBricos = new ArrayList<ServiceBrico>();
+		 
+		  serviceBricos= bservice.findByServiceNom1(nomService);
+	for (ServiceBrico serviceBrico : serviceBricos) {
+     
+	Bricoleur bricoleur = new Bricoleur();
+	 bricoleur=serviceBrico.getBricoleur();
+			 bricoleurs.add(bricoleur);
+			 nomServicee=serviceBrico.getNomService();
+		
+	}
+	
+		  
+	 m.addAttribute("nomServicee",nomServicee);	
+	  m.addAttribute("bricoleurs",bricoleurs);
+	 
+	 return "LesBricoleurs";
+	 }
+	 
+	
+	
+	
+	
 
 }

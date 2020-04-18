@@ -30,17 +30,18 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String home(Model m) {
-		List<ServiceBrico> ServicesBricos = new ArrayList<>();
-
-		ServicesBricos = bS.getall();
-
-		m.addAttribute("ServicesBricos", ServicesBricos);
-
-		List<BesoinClient> besoinsClients = new ArrayList<>();
-
-		besoinsClients = bCS.getall();
-
-		m.addAttribute("besoinsClients", besoinsClients);
+	
+		
+	
+		m.addAttribute("te", "Travaux d'électricité");
+		m.addAttribute("tpp", "Travaux de plâtrerie peinture");
+		m.addAttribute("tm","Travaux de menuiserie");
+		m.addAttribute("tp","Travaux de plomberie");
+		m.addAttribute("tma","Travaux de maçonnerie");
+		m.addAttribute("ti","Travaux d'installation");
+		m.addAttribute("td","\"Travaux de décoration\"");
+	
+		
 
 		return "homePage";
 	}

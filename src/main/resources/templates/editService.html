@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<th:block th:include="layout/BricoleurHeader"></th:block>
+<meta charset="ISO-8859-1">
+<title>editer Service</title>
+</head>
+<body>
+  <div align="center">
+        <h1> Modifier le service</h1>
+        <br />
+        <form action="#" th:action="@{/erreurajouterService/{id}(id=${bricoleur.id})}" th:object="${serviceBrico}" 
+            method="post">
+            
+            <div th:if="${Eror1}" style="position: absolute; top: 60px; left: 325px; width: 780px"
+             class="alert alert-danger">il faut remplir tous les  champs.
+        </div>
+        <br>
+        <br>
+        
+ 
+            <table border="0" cellpadding="10">
+
+            
+                <tr>
+                    <td>Nom de Service :</td>
+                    <td> <select th:field="*{nomService}">
+                        <option th:each="a:${nomService}" th:value="${a}" th:text="${a}"/>
+                    </select></td>
+                </tr>
+               
+                <tr>
+                    <td>Description :</td>
+                    <td><input type="text" th:field="*{description}" placeholder="Description"/></td>
+                </tr>
+                <tr>
+                    <td>Prix :</td>
+                    <td><input type="text" th:field="*{prix}" placeholder="Prix" /></td>
+                </tr>
+  
+                                        
+                <tr>
+                    <td colspan="2"><button type="submit">Edit</button> </td>
+                </tr>
+            </table>
+            
+        </form>
+       
+    </div>
+</body>
+</html>

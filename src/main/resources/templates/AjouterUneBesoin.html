@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<th:block th:include="layout/Header"></th:block>
+<meta charset="ISO-8859-1">
+<title>ajouter Besoin</title>
+</head>
+<body>
+	<div align="center">
+	<br>
+		<h1>Besoin</h1>
+	
+		<form action="#" th:action="@{/erreurajouterBesoin}" th:object="${besoinClient}" method="post">
+
+			<div th:if="${Eror1}"
+				style="position: absolute; top: 60px; left: 325px; width: 780px"
+				class="alert alert-danger">il faut remplir tous les champs.</div>
+			
+			
+
+			<table border="0" cellpadding="10">
+
+				<tr>
+					<td>Nom :</td>
+					<td><input type="text" th:field="*{client.nom}" placeholder="Nom"/></td>
+				</tr>
+				<tr>
+					<td>Prenom :</td>
+					<td><input type="text" th:field="*{client.prenom}" placeholder="Prenom" /></td>
+				</tr>
+
+				<tr>
+					<td>ville :</td>
+					<td><input type="text" th:field="*{client.ville}" placeholder="Ville"/></td>
+				</tr>
+				<tr>
+					<td>Numero de Telephone :</td>
+					<td><input type="text" th:field="*{client.num}" placeholder="Numero de Telephone" /></td>
+				</tr>
+
+				<tr>
+					<td>Nom de Besoin :</td>
+					<td><input type="text" th:field="*{nomBesoin}" placeholder="Nom de Besoin"/></td>
+				</tr>
+
+				<tr>
+					<td>Description :</td>
+					<td><input type="text" th:field="*{description}" placeholder="Description :" /></td>
+				</tr>
+				<tr>
+					<td>Prix :</td>
+					<td><input type="text" th:field="*{prix}" placeholder="Prix " /></td>
+				</tr>
+
+
+				<tr>
+					<td colspan="2"><button type="submit">confirmer</button></td>
+				</tr>
+			</table>
+
+		</form>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<th:block th:include="layout/BricoleurHeader"></th:block>
+<meta charset="ISO-8859-1">
+<title th:text="${bricoleur.nom}" ></title>
+</head>
+<body>
+	<h1 align="center">profil Bricoleur</h1>
+	<div class="container" style="width: 300px">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><h4>Nom</h4></td>
+					<td><h4 th:text="${bricoleur.nom}"></h4></td>
+
+				</tr>
+				<tr>
+					<td><h4>prenom</h4></td>
+					<td><h4 th:text="${bricoleur.prenom}"></h4></td>
+				</tr>
+				<tr>
+					<td><h4>Ville</h4></td>
+					<td><h4 th:text="${bricoleur.ville}"></h4></td>
+				</tr>
+				<tr>
+					<td><h4>Numero Telephone</h4></td>
+					<td><h4 th:text="${bricoleur.num}"></h4></td>
+				</tr>
+				<tr>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+</body>
+</html>
