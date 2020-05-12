@@ -29,7 +29,7 @@ public class LoginController {
 	}
 	
 	
-	@RequestMapping(value = "/profilBricoleur", method = RequestMethod.POST)
+	@RequestMapping(value = "/login1", method = RequestMethod.POST)
 	public String saveProduct(@RequestParam("userName") String userName,@RequestParam("password") String password, Model m) {
 		List<Bricoleur> bricoleurs=new ArrayList<Bricoleur>();
 		bricoleurs=bservice.getall();
@@ -94,5 +94,7 @@ public class LoginController {
 		
 		
 	}
+	
+	
 
 }

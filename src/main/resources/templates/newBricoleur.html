@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -18,7 +19,7 @@
     <br>
         <h1>Devenir Bricoleur</h1>
         
-        <form action="#" th:action="@{/erreur}" th:object="${bricoleur}" 
+        <form name='regForm' th:action="@{/erreur}" th:object="${bricoleur}" 
             method="post">
             
             <div th:if="${Eror1}" style="position: absolute; top: 60px; left: 325px; width: 780px"
@@ -34,7 +35,7 @@
  
             <table border="0" cellpadding="10">
             
-                <tr>
+              <  <tr>
                     <td>UserName :</td>
                     <td><input type="text" th:field="*{userName}" placeholder="UserName"/></td>
                 </tr>
@@ -42,7 +43,7 @@
                 <tr>
                     <td>Password :</td>
                     <td><input type="password" th:field="*{password}" placeholder="Password" /></td>
-                </tr>
+                </tr> 
                 <tr>
                     <td>Nom :</td>
                     <td><input type="text" th:field="*{nom}" placeholder="Nom"/></td>

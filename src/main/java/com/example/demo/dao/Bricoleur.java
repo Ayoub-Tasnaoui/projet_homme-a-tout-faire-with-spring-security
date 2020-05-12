@@ -3,12 +3,19 @@ package com.example.demo.dao;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Bricoleur extends User  {
+public class Bricoleur   {
 
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String userName;
+	private String password;
 	private String nom;
 	private String prenom;
 	private String ville;
@@ -25,24 +32,89 @@ public class Bricoleur extends User  {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bricoleur(String userName, String password, String nom, String prenom, String ville, String num) {
-		super(userName, password);
-		
+	
+
+
+
+
+
+
+
+
+	public Bricoleur(int id, String userName, String password, String nom, String prenom, String ville, String num,
+			List<ServiceBrico> service) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.ville = ville;
 		this.num = num;
-		
+		this.service = service;
 	}
-	public Bricoleur( String nom, String prenom, String ville, String num) {
-		
-		
-		this.nom = nom;
-		this.prenom = prenom;
-		this.ville = ville;
-		this.num = num;
-		
+
+
+
+
+
+
+
+
+
+
+	public int getId() {
+		return id;
 	}
+
+
+
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+
+
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
+
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
+
 
 
 	public String getNom() {
@@ -84,14 +156,21 @@ public class Bricoleur extends User  {
 	public void setNum(String num) {
 		this.num = num;
 	}
-	
-	
+
+
+
+
+
 
 	@Override
 	public String toString() {
-		return "Bricoleur [nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", num=" + num + ", service="
-				+ service + "]";
+		return "Bricoleur [id=" + id + ", userName=" + userName + ", password=" + password + ", nom=" + nom
+				+ ", prenom=" + prenom + ", ville=" + ville + ", num=" + num + ", service=" + service + "]";
 	}
+	
+	
+
+	
 
 	
 	

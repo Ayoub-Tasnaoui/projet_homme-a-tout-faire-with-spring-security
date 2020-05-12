@@ -16,7 +16,7 @@
           href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
           rel="stylesheet" media="screen" />
     <link rel="stylesheet" th:href="@{/css/style.css}" href="../../static/css/style.css" />
-     <title>Bootstrap Example</title>
+     
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -36,11 +36,12 @@
  <li><a th:href="@{/BesoinsClient}">les Besoins</a></li>
  <li><a th:href="@{/addBricoleur}">Devenir Bricoleur</a></li>
 <li><a th:href="@{/AjouterUneBesoin}">AjouterUneBesoin</a></li>
- <li><a th:href="@{/login}">se connecter</a></li>
+ <li><a th:href="@{/profilBricoleur}">se connecter</a></li>
 
  
  
 </ul>
+        <h3  th:text="${msg}"></h3> 
                           
         </div>
                  </div>

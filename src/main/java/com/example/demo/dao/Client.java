@@ -3,13 +3,18 @@ package com.example.demo.dao;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Client extends User {
+public class Client  {
 
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	private String nom;
 	private String prenom;
 	private String ville;
@@ -22,29 +27,55 @@ public class Client extends User {
 		super();
 	}
 
-	public Client(String userName, String password, String nom, String prenom, String ville, String num) {
-		super(userName, password);
-		
-		this.nom = nom;
-		this.prenom = prenom;
-		this.ville = ville;
-		this.num = num;
-		
-	}
-	public Client( String nom, String prenom, String ville, String num) {
-		
-		
-		this.nom = nom;
-		this.prenom = prenom;
-		this.ville = ville;
-		this.num = num;
-		
-	}
+	
+	
 	 
     
 	
 
 	
+
+	public Client(int id, String nom, String prenom, String ville, String num, List<BesoinClient> besoinClient) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.ville = ville;
+		this.num = num;
+		this.besoinClient = besoinClient;
+	}
+
+
+
+
+
+
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+
+
+
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+
+
+
+
+
 
 	public String getNom() {
 		return nom;
@@ -86,11 +117,21 @@ public class Client extends User {
 		this.besoinClient = besoinClient;
 	}
 
+
+
+
+
+
+
+
+
 	@Override
 	public String toString() {
-		return "Client [nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", num=" + num + ", besoinClient="
-				+ besoinClient + "]";
+		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", num=" + num
+				+ ", besoinClient=" + besoinClient + "]";
 	}
+
+	
 	
 	
 

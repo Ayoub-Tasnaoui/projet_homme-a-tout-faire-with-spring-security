@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.dao.Bricoleur;
+import com.example.demo.security.UserRepository;
+import com.example.demo.security.UserService;
 import com.example.demo.service.BricoleurService;
 
 @Controller
@@ -20,6 +24,13 @@ public class BricoController {
 
 	@Autowired
 	BricoleurService bricoleurService;
+	
+	@Autowired
+	UserService userService;
+	@Autowired
+	private UserRepository userRepository;
+	
+	
 
 	@RequestMapping("/bricoleurs")
 	public String home1(Model m) {
@@ -65,9 +76,12 @@ public class BricoController {
 			}
 		}
 		
-		bricoleurService.add(bricoleur);
 		
-		return "redirect:/login";
+		userService.save(bricoleur);
+		userRepository.flush();
+		
+		m.addAttribute("msg","you are successfully authenticated !");
+		return "homePage";
 	}
 
 	@RequestMapping("/VoirBricoleur/{id}")
@@ -99,6 +113,22 @@ public class BricoController {
 		Bricoleur bricoleur = new Bricoleur();
 		bricoleur = bricoleurService.getOneBricoleur(id);
 		m.addAttribute("bricoleur", bricoleur);
+
+		return "profilBricoleur";
+	}
+	@RequestMapping("/profilBricoleur")
+	public String profilBricoleur( Model m) {
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (principal instanceof UserDetails) {
+		  String username = ((UserDetails)principal).getUsername();
+		  Bricoleur bricoleur = new Bricoleur();
+			bricoleur = userService.findUserByUserName(username);
+			System.out.println(username);
+			m.addAttribute("bricoleur", bricoleur);
+		}
+		
 
 		return "profilBricoleur";
 	}
